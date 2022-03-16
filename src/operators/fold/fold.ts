@@ -1,11 +1,13 @@
 import { Observable, OperatorFunction } from 'rxjs';
-import { map, reduce } from 'rxjs/operators';
+import { reduce } from 'rxjs/operators';
 
 export function fold<T>(): OperatorFunction<T, T[]> {
   return (source: Observable<T>): Observable<T[]> => {
     return source.pipe(
-      map((x) => [x]),
-      reduce((acc: T[], value: T[]) => [...acc, ...value], []),
+      reduce((acc: T[], value) => {
+        acc.push(value);
+        return acc;
+      }, [] as T[]),
     );
   };
 }

@@ -45,4 +45,17 @@ describe('fold', () => {
     expect(allResults).toEqual([expectedValues]);
     expect(result).toEqual(expectedValues);
   });
+
+  test('observable with a very high amount of elements, should not hit performance mark', async () => {
+    const length = 100_000;
+
+    const obs = of(...Array(length).keys()).pipe(fold());
+    const startDate = new Date();
+    const result = await obs.toPromise();
+    const endDate = new Date();
+
+    expect(result.length).toEqual(length);
+    const dateDiff = endDate.getTime() - startDate.getTime();
+    expect(dateDiff).toBeLessThan(10);
+  });
 });
