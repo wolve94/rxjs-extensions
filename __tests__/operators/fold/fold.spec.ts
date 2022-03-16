@@ -56,6 +56,6 @@ describe('fold', () => {
 
     expect(result.length).toEqual(length);
     const dateDiff = endDate.getTime() - startDate.getTime();
-    expect(dateDiff).toBeLessThan(10);
+    expect(dateDiff).toBeLessThan(30);
   });
 });
