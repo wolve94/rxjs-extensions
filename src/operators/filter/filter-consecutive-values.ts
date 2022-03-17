@@ -27,13 +27,13 @@ export function filterConsecutiveValues<T>(
 export function filterConsecutiveValues<T>(
   areEqual?: ((prev: T, curr: T) => boolean) | undefined,
 ): OperatorFunction<T, T> {
-  areEqual ??= (p, c) => p === c;
+  const eq = areEqual ?? ((p, c) => p === c);
   return (stream: Observable<T>): Observable<T> => {
     return stream.pipe(
       startWith(emptySymbol),
       pairwise(),
       filter(([prev, curr]) => {
-        return prev === emptySymbol || !areEqual(prev, curr as T);
+        return prev === emptySymbol || !eq(prev, curr as T);
       }),
       map(([_, curr]) => curr as T),
     );

@@ -6,6 +6,7 @@
     "rootDir": ".",
     "outDir": "build",
     "allowSyntheticDefaultImports": true,
+    "declaration": true,
     "allowJs": true,
     "importHelpers": true,
     "alwaysStrict": true,
@@ -15,12 +16,10 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noImplicitThis": false,
-    "strictNullChecks": false
+    "strictNullChecks": true,
+    "strict": true
   },
-  "include": [
-    "src/**/*",
-    "__tests__/**/*"
-  ]
+  "include": ["src/**/*", "__tests__/**/*"]
 }
