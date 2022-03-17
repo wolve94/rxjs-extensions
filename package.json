@@ -1,7 +1,9 @@
 {
   "name": "rxjs-extensions",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "Just some useful extension methods for rxjs",
+  "main": "build/src/main.js",
+  "types": "build/src/main.d.ts",
   "type": "module",
   "engines": {
     "node": ">= 16.13"
@@ -33,6 +35,10 @@
     "test:watch": "jest --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\""
   },
+  "files": [
+    "build/**/*",
+    "!build/__tests__"
+  ],
   "author": "Jakub Synowiec <jsynowiec@users.noreply.github.com>",
   "license": "Apache-2.0",
   "dependencies": {

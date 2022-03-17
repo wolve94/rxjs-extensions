@@ -35,6 +35,7 @@ export function filterConsecutiveValues<T>(
       filter(([prev, curr]) => {
         return prev === emptySymbol || !eq(prev, curr as T);
       }),
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       map(([_, curr]) => curr as T),
     );
   };
