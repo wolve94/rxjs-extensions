@@ -2,6 +2,11 @@
 
 a pack of functions, that are missing or not as easy to use in the default rxjs library
 
+## GIT REPO
+```url
+https://github.com/wolve94/rxjs-extensions
+```
+
 ## ```fold```
 ```typescript
 // => all values of the observable are collected into an array when the observable completes
